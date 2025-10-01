@@ -10,3 +10,13 @@ export async function getPages() {
   );
   return response.data;
 }
+
+export async function getPageById(pageId) {
+  const auth = { username: config.email, password: config.apiToken };
+
+  const response = await axios.get(
+    `${config.baseUrl}/pages/${pageId}`,
+    { auth }
+  );
+  return response.data;
+}
